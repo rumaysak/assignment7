@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="3.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="MO"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2023-03-28 05:30:34 PM"/>
+        <attribute name="created" value="TU87REVTS1RPUC1GVFZQUlJROzIwMjMtMDMtMjg7MDU6MDA6NDQgUE07MjU4MQ=="/>
+        <attribute name="edited" value="TU87REVTS1RPUC1GVFZQUlJROzIwMjMtMDMtMjg7MDU6MzA6MzQgUE07MjsyNjky"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="lastname" type="String" array="False" size=""/>
+            <declare name="hours" type="Real" array="False" size=""/>
+            <declare name="time" type="Real" array="False" size=""/>
+            <declare name="salary" type="Real" array="False" size=""/>
+            <declare name="rate" type="Real" array="False" size=""/>
+            <declare name="grosspay" type="Real" array="False" size=""/>
+            <declare name="overtime" type="Real" array="False" size=""/>
+            <declare name="noofemployees" type="Real" array="False" size=""/>
+            <declare name="sumofgrosspay" type="Real" array="False" size=""/>
+            <declare name="response" type="String" array="False" size=""/>
+            <output expression="&quot;Do you want to calculate your rate of pay? (Yes or No)&quot;" newline="True"/>
+            <input variable="response"/>
+            <while expression="response = &quot;Yes&quot;">
+                <input variable="lastname"/>
+                <input variable="noofemployees"/>
+                <input variable="hours"/>
+                <input variable="rate"/>
+                <input variable="salary"/>
+                <input variable="grosspay"/>
+                <assign variable="sumofgrosspay" expression="hours *  rate"/>
+                <if expression="hours &gt; 40">
+                    <then>
+                        <assign variable="time" expression="hours * 0.50"/>
+                    </then>
+                    <else>
+                        <assign variable="time" expression="hours * 0"/>
+                    </else>
+                </if>
+                <assign variable="time" expression="rate * hours"/>
+                <assign variable="sumofgrosspay" expression="salary * grosspay"/>
+                <assign variable="noofemployees" expression="noofemployees"/>
+                <output expression="&quot;My hourly pay is $&quot; &amp;rate" newline="True"/>
+                <output expression="&quot;The sum of my gross pay is $&quot; &amp;sumofgrosspay" newline="True"/>
+                <output expression="&quot;The number of employees at my job are&quot; &amp;noofemployees" newline="True"/>
+                <output expression="&quot;Do you want to calculate your rate of pay? (Yes or No)&quot;" newline="True"/>
+            </while>
+        </body>
+    </function>
+</flowgorithm>
